@@ -49,5 +49,4 @@ Useage:
         Please install python2.7 at first.
 		
 IF ANY Problem Please @：
-TEL:15821886825
 Email:sunyongshuai@sjtu.edu.cn
