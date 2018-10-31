@@ -35,18 +35,19 @@
 		  + MosFetTran		#Cmos Inverter Tran Simulation
 		  + RLC				#RLC仿真
 		
-Platform: python2.7 in Ubuntu 16.04.4 amd64 
+# Test Platform
+python2.7 in Ubuntu 16.04.4&18.04.1 amd64 
 
-Useage:
-    if python2.7 in your computer such as /usr/bin/, you can type:
-        $ ./Gui.py   \
-        $ python2.7 Gui.py
-		or you can use Command mode by 
-		$ ./SunSpice.py **.sp \
-		$ python2.7 SunSpice.py **.sp
+# Useage:
+  if python2.7 in your computer such as /usr/bin/, you can type:
+     $ ./Gui.py   \
+     $ python2.7 Gui.py
+     or you can use Command mode by 
+	$ ./SunSpice.py **.sp \
+	$ python2.7 SunSpice.py **.sp
     
-    else:
-        Please install python2.7 at first.
+  else:
+     Please install python2.7 at first.
 		
-IF ANY Problem Please @：
-Email:sunicyosen@outlook.com
+IF ANY Problem Please Email:sunicyosen@outlook.com
+All right reserved by SunicYosen
