@@ -1,2 +1,7 @@
 # Python
 *.py[cod]
+
+#Circuit
+*.ac
+*.dc
+*.tr
