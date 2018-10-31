@@ -49,4 +49,4 @@ Useage:
         Please install python2.7 at first.
 		
 IF ANY Problem Please @：
-Email:sunyongshuai@sjtu.edu.cn
+Email:sunicyosen@outlook.com
