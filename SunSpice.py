@@ -11,7 +11,6 @@
 #Import Package
 import sys
 import os
-import multiprocessing
 import matplotlib.pyplot as plt
 
 import parameters
@@ -40,15 +39,15 @@ def main(args):
 		readFile()
 
 		OpSimulation()
-		#DCSimulation()
-		#ACSimulation()
-		#TranSimulation()
+		DCSimulation()
+		ACSimulation()
+		TranSimulation()
 
-		#plotDC()
-		#plotAC()
-		#plotTran()
+		plotDC()
+		plotAC()
+		plotTran()
 
-		#plt.show()
+		plt.show()
 
 if __name__ == '__main__':
 	main(sys.argv)

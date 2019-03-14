@@ -1,2 +1,7 @@
+
+all:
+	echo "Hello world"
+
+.PHONY: clean
 clean:
-	rm  *.pyc **/*.pyc **/**/*.pyc
+	rm -r __pycache__/ **/__pycache__/ **/**/__pycache__/
