@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 sys.path.append("../..")
@@ -34,11 +34,11 @@ def parsePlot(PlotString = ''):
     listPlotParam = PlotString.split(' ')
 
     if listPlotParam[0] == 'ac':
-        print 'Info: AC Plot'
+        print( 'Info: AC Plot')
         plotNum = len(listPlotParam)-1
 
         if plotNum <= 1 :
-            print 'Warning: No AC Plot'
+            print('Warning: No AC Plot')
         
         else:
             plotACParam_v = plotDCParam()
@@ -58,7 +58,7 @@ def parsePlot(PlotString = ''):
                     if ',' in VoltageExpStr:
                         VoltageExpList = VoltageExpStr.split(',')
                         if len(VoltageExpList) != 2:
-                            print 'Error: Error Plot Voltage Expression: ',listPlotParam[index+1]
+                            print( 'Error: Error Plot Voltage Expression: ',listPlotParam[index+1])
                         else:
                             VoltageExpTemp.portPos = VoltageExpList[0]
                             VoltageExpTemp.portNeg = VoltageExpList[1]
@@ -73,7 +73,7 @@ def parsePlot(PlotString = ''):
                     plotACParam_i.CurrentDeviceName.append(CurrentDeviceNameTemp)
                 
                 else:
-                    print "Error: Unkown AC Plot Type(Voltage or Current)"
+                    print( "Error: Unkown AC Plot Type(Voltage or Current)")
                     exit()
 
             if flag_v:
@@ -84,11 +84,11 @@ def parsePlot(PlotString = ''):
 
 
     elif listPlotParam[0] == 'dc':
-        print 'Info: DC Plot'
+        print( 'Info: DC Plot')
         plotNum = len(listPlotParam) - 1
 
         if plotNum <= 0:
-            print 'Warning: No DC plot!'
+            print( 'Warning: No DC plot!')
         
         else:
             plotDCParam_v = plotDCParam()
@@ -108,7 +108,7 @@ def parsePlot(PlotString = ''):
                     if ',' in VoltageExpStr:
                         VoltageExpList = VoltageExpStr.split(',')
                         if len(VoltageExpList) != 2:
-                            print 'Error: Error Plot Voltage Expression: ',listPlotParam[index+1]
+                            print( 'Error: Error Plot Voltage Expression: ',listPlotParam[index+1])
                         else:
                             VoltageExpTemp.portPos = VoltageExpList[0]
                             VoltageExpTemp.portNeg = VoltageExpList[1]
@@ -123,7 +123,7 @@ def parsePlot(PlotString = ''):
                     plotDCParam_i.CurrentDeviceName.append(CurrentDeviceNameTemp)
                 
                 else:
-                    print "Error: Unkown DC Plot Type(Voltage or Current)"
+                    print( "Error: Unkown DC Plot Type(Voltage or Current)")
                     exit()
 
             if flag_v:
@@ -133,11 +133,11 @@ def parsePlot(PlotString = ''):
                 parameters.listPlotDC.append(plotDCParam_i)
                     
     elif listPlotParam[0] == 'tran':
-        print 'Info: Tran Plot'
+        print( 'Info: Tran Plot')
         plotNum = len(listPlotParam) - 1
 
         if plotNum <= 0:
-            print 'Warning: No Tran plot!'
+            print( 'Warning: No Tran plot!')
         
         else:
             plotTranParam_v = plotDCParam()
@@ -152,12 +152,12 @@ def parsePlot(PlotString = ''):
             for index in range(plotNum):
                 if re.match(regExpPlotV,listPlotParam[index+1]):        #Plot V
                     flag_v = True
-                    VoltageExpTemp = VoltageExp()                   #Define VoltageExp
+                    VoltageExpTemp = VoltageExp()                       #Define VoltageExp
                     VoltageExpStr = listPlotParam[index+1].replace('v(','').replace(')','').strip() #remove
                     if ',' in VoltageExpStr:
                         VoltageExpList = VoltageExpStr.split(',')
                         if len(VoltageExpList) != 2:
-                            print 'Error: Error Plot Voltage Expression: ',listPlotParam[index+1]
+                            print('Error: Error Plot Voltage Expression: ',listPlotParam[index+1])
                         else:
                             VoltageExpTemp.portPos = VoltageExpList[0]
                             VoltageExpTemp.portNeg = VoltageExpList[1]
@@ -172,7 +172,7 @@ def parsePlot(PlotString = ''):
                     plotTranParam_i.CurrentDeviceName.append(CurrentDeviceNameTemp)
                 
                 else:
-                    print "Error: Unkown DC Plot Type(Voltage or Current)"
+                    print( "Error: Unkown DC Plot Type(Voltage or Current)")
                     exit()
 
             if flag_v:
@@ -182,5 +182,5 @@ def parsePlot(PlotString = ''):
                 parameters.listPlotTran.append(plotTranParam_i)
 
     else:
-        print 'Error: Unkown Simlation Type!',listPlotParam[0]
+        print( 'Error: Unkown Simlation Type!',listPlotParam[0])
     

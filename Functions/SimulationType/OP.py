@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 #Import Package
@@ -6,7 +6,7 @@ import sys
 sys.path.append("../../")
 
 import numpy as np
-from tkMessageBox import showinfo
+from tkinter.messagebox import showinfo
 
 import parameters
 from Functions.string2num import string2num
@@ -185,7 +185,7 @@ def getOutDataOp(MatResult):
     return WriteString
 
 def OpSimulation():
-    print "Info: OP Simulation ..."
+    print("Info: OP Simulation ...")
     NodeNum = len(parameters.NodesDict) - 1        # Nodes but GND
     branchnum = len(parameters.listDCV) + len(parameters.listPulseV) \
                 + len(parameters.listSinV) + len(parameters.listE)   \
@@ -206,7 +206,7 @@ def OpSimulation():
         elif len(parameters.listM) != 0:
             MarkPort = parameters.NodesDict.get(parameters.listM[0].portD)
         else:
-            print "Error: Logic Error!"     #Wouldn't Here
+            print("Error: Logic Error!")    #Wouldn't Here
             return
         
         lastVMarkPort = 1.8         #No mater
@@ -215,7 +215,7 @@ def OpSimulation():
         InitFlag = True
 
         while abs(VMarkPort - lastVMarkPort) > 0.000001:
-            #print VMarkPort               
+            #print(VMarkPort)               
 
             MatStamps = np.mat(np.zeros((MatNum,MatNum)))
             MatRhs = np.mat(np.zeros((MatNum,1)))
@@ -600,15 +600,15 @@ def OpSimulation():
         parameters.opValueString = getOutDataOp(MatResult)
     
 
-    print 'MNA:'
-    print MatStamps
-    print 'RHS: '
-    print MatRhs
-    print 'Result: '
-    print MatResult
-    print parameters.opExpString
-    print parameters.opValueString
-    print '-------------------------------------'
+    print('MNA:')
+    print(MatStamps)
+    print('RHS: ')
+    print(MatRhs)
+    print('Result: ')
+    print(MatResult)
+    print(parameters.opExpString)
+    print(parameters.opValueString)
+    print('-------------------------------------')
     showinfo('OP','OP Simulation End!')
     return MatResult
 

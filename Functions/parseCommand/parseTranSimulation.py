@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 sys.path.append("../..")
@@ -38,7 +38,7 @@ def parseTranSimulation(TranSimulationString = ''):
 		elif ('tstart' in listTranTemp[2]):
 			TranParamTemp.StartTime = string2num(listTranTemp[2].split('=')[1])
 		else:
-			print "Error: Tran parameter Unknown!",listTranTemp[2]
+			print( "Error: Tran parameter Unknown!",listTranTemp[2])
 			exit()
 
 		parameters.listTranParam.append(TranParamTemp)
@@ -49,18 +49,18 @@ def parseTranSimulation(TranSimulationString = ''):
 		if ('tstart' in listTranTemp[2]):
 			TranParamTemp.StartTime = string2num(listTranTemp[2].split('=')[1])
 		else:
-			print "Error: Tran parameter Unknown!",listTranTemp[2]
+			print( "Error: Tran parameter Unknown!",listTranTemp[2])
 			exit()
 
 		if (listTranTemp[3] == 'uic'):
 			TranParamTemp.UIC = True
 		else:
-			print "Error: Tran parameter Unknown!",listTranTemp[3]
+			print( "Error: Tran parameter Unknown!",listTranTemp[3])
 			exit()
 		parameters.listTranParam.append(TranParamTemp)
 	
 	else:
-		print "Error: Tran Params More Than Expected!"
+		print( "Error: Tran Params More Than Expected!")
 		exit()
 
 	#TranSimulation()  #Start Tran Simulation

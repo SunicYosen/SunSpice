@@ -1,9 +1,9 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 #Import Package
 import numpy as np
-from tkMessageBox import *
+from tkinter.messagebox import *
 
 import parameters
 
@@ -149,22 +149,22 @@ def getOutDataDC(MatResult):
 
 def DCSimulation():
     if len(parameters.listDCParam) == 0:
-        print "Warning: No DC Simulation Parameter!"
-        print ''
+        print("Warning: No DC Simulation Parameter!")
+        print('')
         return
 
     elif len(parameters.listDCParam) == 1:
-        print 'Info: DC Simulation ...'
+        print('Info: DC Simulation ...')
 
         ParamName = parameters.listDCParam[0].paramName
-        print "Info: --Param:", ParamName
+        print("Info: --Param:", ParamName)
 
         StartVal = parameters.listDCParam[0].paramValueStart
         StopVal = parameters.listDCParam[0].paramValueStop
         StepVal = parameters.listDCParam[0].paramValueStep
         #PiontNum = parameters.listDCParam[0].default_PointNum
 
-        if parameters.ParamDict.has_key(ParamName):
+        if ParamName in parameters.ParamDict:
             flagParam = True
             Value_Param = parameters.ParamDict.get(ParamName)   #Store Origin Param Value
 
@@ -196,7 +196,7 @@ def DCSimulation():
         InitFlag = True
 
         while Val_Temp <= StopVal:
-            print Val_Temp
+            print(Val_Temp)
             parameters.ParamDict[ParamName] = Val_Temp
             if (len(parameters.listD) != 0) | (len(parameters.listM) != 0):    #Unlinear Diode Devices
                 if (len(parameters.listD)!=0):
@@ -204,7 +204,7 @@ def DCSimulation():
                 elif len(parameters.listM) != 0:
                     MarkPort = parameters.NodesDict.get(parameters.listM[0].portD)
                 else:
-                    print "Error: Logic Error!"     #Wouldn't Here
+                    print("Error: Logic Error!")     #Wouldn't Here
                     exit()
                 
                 lastVMarkPort = 1.8     #No Mater
@@ -570,13 +570,13 @@ def DCSimulation():
             parameters.ParamDict[ParamName] = Value_Param
             
         fileResult.close()
-        print 'Info: End DC Simulation ...'
+        print('Info: End DC Simulation ...')
         
     elif len(parameters.listDCParam) == 2:
-        print "Info: SWEEP:",parameters.listDCParam[0].paramName,parameters.listDCParam[1].paramName
+        print("Info: SWEEP:",parameters.listDCParam[0].paramName,parameters.listDCParam[1].paramName)
     
     else:
-        print "Error: Error Expression of DC Simulation" 
+        print("Error: Error Expression of DC Simulation" )
 
     showinfo('DC','DC Simulation End!')
     

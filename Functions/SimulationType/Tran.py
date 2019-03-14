@@ -1,9 +1,9 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 #Import Package
 import numpy as np
-from tkMessageBox import *
+from tkinter.messagebox import *
 
 import parameters
 
@@ -149,7 +149,7 @@ def TranSimulation():
         return
 
     elif len(parameters.listTranParam) == 1:
-        print 'Info: Tran Simulation ...'
+        print('Info: Tran Simulation ...')
         TranParamTime = parameters.listTranParam[0]
         StepTime = TranParamTime.StepTime
         StopTime = TranParamTime.StopTime
@@ -185,7 +185,7 @@ def TranSimulation():
                 elif len(parameters.listM) != 0:
                     MarkPort = parameters.NodesDict.get(parameters.listM[0].portD)
                 else:
-                    print "Error: Logic Error!"     #Wouldn't Here
+                    print("Error: Logic Error!")    #Wouldn't Here
                     return
                 
                 lastVMarkPort = 1.8     #No Mater
@@ -346,7 +346,7 @@ def TranSimulation():
 
                         MatRhs[matAddr,0] = Pluse_DCValue
                         MatResult[portPos-1,0] = Pluse_DCValue
-                        print Pluse_DCValue
+                        print(Pluse_DCValue)
 
                         if portPos != 0:
                             MatStamps[matAddr,portPos-1] = 1
@@ -634,10 +634,10 @@ def TranSimulation():
             fileResult.write(WriteString + '\n')
 
             TimeTemp = TimeTemp + StepTime
-        print 'Info: End Tran Simulation ...'
+        print('Info: End Tran Simulation ...')
         
 
     else :
-        print 'Error: More Than One Param!'
+        print('Error: More Than One Param!')
 
     showinfo('Tran','Tran Simulation End!')

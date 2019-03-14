@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 
@@ -15,7 +15,7 @@ def helpGuide(argsString = []):
             exit()
 
         elif (argsString[index] == '--version') | (argsString[index] == '-v'):
-            print 'SunSpice -V1.0 (2018-4-15) \nAll Rights Reserved By SunYongshuai'
+            print( 'SunSpice -V1.0 (2018-4-15) \nAll Rights Reserved By SunYongshuai')
             exit()
 
         elif (argsString[index] == '--print') | (argsString[index] == '-pr'):
@@ -28,13 +28,13 @@ def helpGuide(argsString = []):
             printHelp(argsString[0])
 
 def printHelp(ProgramName=''):
-    print ProgramName, '[Options]'
-    print 'Options:'
-    print '\t--help|-h   \t Show Options Help'
-    print '\t--version|-v\t Show The Verion of the script' 
-    print '\t<Filename>  \t Simulation the Netlist Given'
-    print '\t--print|-pr \t Print The Value'
-    print '\t--plot |-pl  \t Plot the Value'
+    print( ProgramName, '[Options]')
+    print( 'Options:')
+    print( '\t--help|-h   \t Show Options Help')
+    print( '\t--version|-v\t Show The Verion of the script' )
+    print( '\t<Filename>  \t Simulation the Netlist Given')
+    print( '\t--print|-pr \t Print The Value')
+    print( '\t--plot |-pl  \t Plot the Value')
     return 
 
 

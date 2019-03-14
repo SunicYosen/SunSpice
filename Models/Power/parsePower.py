@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from PowerClass import DCPower,ACPower,SinPower,PlusePower
+from Models.Power.PowerClass import DCPower,ACPower,SinPower,PlusePower
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,7 +14,7 @@ def parsePower(powString = ''):
 	powParaList = powString.split(' ')
 
 	if len(powParaList) < 4:
-		print '----ERROR: Less parameters than expected!'
+		print('----ERROR: Less parameters than expected!')
 		return '----False'
 	
 	elif 'sin' in powParaList:
@@ -36,7 +36,7 @@ def parsePower(powString = ''):
 				elif paraTempList[0] == 'vo':
 					SinPowerTemp.Vo = paraTempList[1]
 				else:
-					print "****Error! Unknow parameter : ",paraTempList[0]
+					print("****Error! Unknow parameter : ",paraTempList[0])
 
 			else:
 				if addrTemp == 4 :
@@ -48,7 +48,7 @@ def parsePower(powString = ''):
 				elif addrTemp == 7:
 					SinPowerTemp.Vo = powParaList[addrTemp]
 				else:
-					print powParaList[addrTemp],"is Unexpected! It will be Ignored!"
+					print(powParaList[addrTemp],"is Unexpected! It will be Ignored!")
 					pass
 			
 			addrTemp = addrTemp + 1
@@ -83,7 +83,7 @@ def parsePower(powString = ''):
 				elif paraTempList[0] == 'tperiod' | paraTempList[0] == 'tp':
 					plusePowerTemp.Tperiod = paraTempList[1]
 				else:
-					print "****Error! Unknow parameter : ",paraTempList[0]
+					print("****Error! Unknow parameter : ",paraTempList[0])
 
 			else:
 				if addrTemp == 4 :
@@ -101,7 +101,7 @@ def parsePower(powString = ''):
 				elif addrTemp == 10:
 					plusePowerTemp.Tperiod = powParaList[addrTemp]
 				else:
-					print powParaList[addrTemp],"is Unexpected! It will be Ignored!"
+					print(powParaList[addrTemp],"is Unexpected! It will be Ignored!")
 					pass
 			
 			addrTemp = addrTemp + 1
@@ -128,15 +128,15 @@ def parsePower(powString = ''):
 		parameters.listDCV.append(dcpowerTemp)
 
 		#value = string2num(powerTemp.value)
-		#print '\t',powerTemp.portPos,'\t',powerTemp.portNeg,'\t','i','\t','RHS'
-		#print powerTemp.portPos,'\t',0,'\t',0,'\t',1,'\t',0
-		#print powerTemp.portNeg,'\t',0,'\t',0,'\t',-1,'\t',0
-		#print 'branch\t',1,'\t',-1,'\t',0,'\t',value	
+		#print('\t',powerTemp.portPos,'\t',powerTemp.portNeg,'\t','i','\t','RHS')
+		#print(powerTemp.portPos,'\t',0,'\t',0,'\t',1,'\t',0)
+		#print(powerTemp.portNeg,'\t',0,'\t',0,'\t',-1,'\t',0)
+		#print('branch\t',1,'\t',-1,'\t',0,'\t',value	)
 	
 
 	else:
-		print '****ERROR! Wrong expression of Power: '
-		print '      ', powString
+		print('****ERROR! Wrong expression of Power: ')
+		print('      ', powString)
 		return '----False'
 
 	return ''

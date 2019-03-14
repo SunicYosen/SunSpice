@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from CtrlSourceClass import vccs
+from Models.CtrlSource.CtrlSourceClass import vccs
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,9 +14,9 @@ import parameters
 def parseVCCS_G(stringVCCS = ''):
 	VCCSList = stringVCCS.split()
 	if len(VCCSList) > 6:
-		print "Error! More parameters than expected!"
+		print("Error! More parameters than expected!")
 	elif len(VCCSList) < 6:
-		print "Error! Less parameters than expected!"
+		print("Error! Less parameters than expected!")
 
 	else:
 		vccsTemp = vccs()
@@ -33,7 +33,7 @@ def parseVCCS_G(stringVCCS = ''):
 
 		#value = string2num(vccsTemp.transconValue)
 
-		#print '\t',vccsTemp.ctlNodePos,'\t',vccsTemp.ctlNodeNeg
-		#print vccsTemp.portPos,'\t',value,'\t',value*(-1)
-		#print vccsTemp.portNeg,'\t',value*(-1),'\t',value
-		#print ''
+		#print('\t',vccsTemp.ctlNodePos,'\t',vccsTemp.ctlNodeNeg)
+		#print(vccsTemp.portPos,'\t',value,'\t',value*(-1))
+		#print(vccsTemp.portNeg,'\t',value*(-1),'\t',value)
+		#print('')

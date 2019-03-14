@@ -1,23 +1,24 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
+sys.path.append(".")
 
 import parameters
-from CapacitorClass import Capacitor
+from Models.Capacitor.CapacitorClass import Capacitor
 from Functions.addNode import addNode
 from Functions.string2num import string2num
 
 def parseC(capString = ''):
 	capParaList = capString.split(' ')
 	if len(capParaList) > 4:
-		print 'ERROR: More parameters than expected!'
+		print( 'ERROR: More parameters than expected!')
 		exit()
 		#return '----False'
 	
 	elif len(capParaList) < 4:
-		print 'ERROR: Less parameters than expected!'
+		print( 'ERROR: Less parameters than expected!')
 		exit()
 		#return '----False'
 	
@@ -33,16 +34,16 @@ def parseC(capString = ''):
 		parameters.listC.append(capacitorTemp)
 
 		#value = string2num(capacitorTemp.value)
-		#print "--AC stamp"
-		#print '\t|',capacitorTemp.port1,'\t\t|',capacitorTemp.port2, '\t\t| RHS'
-		#print capacitorTemp.port1,'\t|',value,'s','\t|',-1*value,'s','\t|',0
-		#print capacitorTemp.port2,'\t|',-1*value,'s','\t|',value,'s','\t|',0
-		#print ''
+		#print( "--AC stamp")
+		#print( '\t|',capacitorTemp.port1,'\t\t|',capacitorTemp.port2, '\t\t| RHS')
+		#print( capacitorTemp.port1,'\t|',value,'s','\t|',-1*value,'s','\t|',0)
+		#print( capacitorTemp.port2,'\t|',-1*value,'s','\t|',value,'s','\t|',0)
+		#print('')
 
-		#print '\t',capacitorTemp.port1,'\t',capacitorTemp.port2,'\t'
-		#print capacitorTemp.port1,'  ',1/value,' \t',-1/value
-		#print capacitorTemp.port2,'  ',-1/value,' \t',1/value
-		#print ''	
+		#print('\t',capacitorTemp.port1,'\t',capacitorTemp.port2,'\t')
+		#print(capacitorTemp.port1,'  ',1/value,' \t',-1/value)
+		#print(capacitorTemp.port2,'  ',-1/value,' \t',1/value)
+		#print('')
 
 		#return capacitorTemp
 

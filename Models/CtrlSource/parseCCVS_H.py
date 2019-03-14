@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from CtrlSourceClass import ccvs
+from Models.CtrlSource.CtrlSourceClass import ccvs
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,9 +14,9 @@ import parameters
 def parseCCVS_H(stringCCVS = ''):
 	CCVSList = stringCCVS.split()
 	if len(CCVSList) > 6:
-		print "Error! More parameters than expected!"
+		print("Error! More parameters than expected!")
 	elif len(CCVSList) < 6:
-		print "Error! Less parameters than expected!"
+		print("Error! Less parameters than expected!")
 	else :
 		ccvsTemp = ccvs()
 		ccvsTemp.name = CCVSList[0]
@@ -31,10 +31,10 @@ def parseCCVS_H(stringCCVS = ''):
 		parameters.listH.append(ccvsTemp)
 
 		#HkValue = string2num(ccvsTemp.transResValue)
-		#print '\t',ccvsTemp.portPos,'\t',ccvsTemp.portNeg,'\t',ccvsTemp.ctlNodePos,'\t',ccvsTemp.ctlNodeNeg,'\t','Ik','\t','Ic'
-		#print ccvsTemp.portPos,'\t',0,'\t',0,'\t',0,'\t',0,'\t',1,'\t',0
-		#print ccvsTemp.portNeg,'\t',0,'\t',0,'\t',0,'\t',0,'\t',-1,'\t',0
-		#print ccvsTemp.ctlNodePos,'\t',0,'\t',0,'\t',0,'\t',0,'\t',0,'\t',1
-		#print ccvsTemp.ctlNodeNeg,'\t',0,'\t',0,'\t',0,'\t',0,'\t',0,'\t',-1
-		#print 'br-vs\t',1,'\t',-1,'\t',0,'\t',0,'\t',0,'\t',-1*HkValue
-		#print 'br-cc\t',0,'\t',0,'\t',1,'\t',-1,'\t',0,'\t',0
+		#print('\t',ccvsTemp.portPos,'\t',ccvsTemp.portNeg,'\t',ccvsTemp.ctlNodePos,'\t',ccvsTemp.ctlNodeNeg,'\t','Ik','\t','Ic')
+		#print(ccvsTemp.portPos,'\t',0,'\t',0,'\t',0,'\t',0,'\t',1,'\t',0)
+		#print(ccvsTemp.portNeg,'\t',0,'\t',0,'\t',0,'\t',0,'\t',-1,'\t',0)
+		#print(ccvsTemp.ctlNodePos,'\t',0,'\t',0,'\t',0,'\t',0,'\t',0,'\t',1)
+		#print(ccvsTemp.ctlNodeNeg,'\t',0,'\t',0,'\t',0,'\t',0,'\t',0,'\t',-1)
+		#print('br-vs\t',1,'\t',-1,'\t',0,'\t',0,'\t',0,'\t',-1*HkValue)
+		#print('br-cc\t',0,'\t',0,'\t',1,'\t',-1,'\t',0,'\t',0)

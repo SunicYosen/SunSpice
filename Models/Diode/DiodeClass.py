@@ -1,4 +1,4 @@
-#!python2.7
+#!python3
 # _*_ encoding=UTF-8 _*_
 import sys
 sys.path.append("../..")

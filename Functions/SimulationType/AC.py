@@ -1,11 +1,11 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 #Import Package
 import re
 import numpy as np
 import matplotlib.pyplot as plt
-from tkMessageBox import *
+from tkinter.messagebox import *
 
 import parameters
 
@@ -123,7 +123,7 @@ def getDataAC(MatResult):
         WriteString = WriteString + str(D_I) + '\t'
 
     for MosFet in parameters.listM:
-        print MosFet.portD
+        print(MosFet.portD)
         pass
 
     for vccs_g in parameters.listG:
@@ -147,12 +147,12 @@ def getDataAC(MatResult):
 
 def ACSimulation():
     if len(parameters.listACParam) == 0:
-        print "Warning: No AC Simulation Parameter! ..."
-        print ''
+        print("Warning: No AC Simulation Parameter! ...")
+        print('')
         return
     elif len(parameters.listACParam) == 1:
-        print 'Info: AC Simulation ...'
-        print ''
+        print('Info: AC Simulation ...')
+        print('')
         Param = parameters.listACParam[0]
         paramName = Param.paramName
 
@@ -185,7 +185,7 @@ def ACSimulation():
                 elif len(parameters.listM) != 0:
                     MarkPort = parameters.NodesDict.get(parameters.listM[0].portD)
                 else:
-                    print "Error: Logic Error!"     #Wouldn't Here
+                    print("Error: Logic Error!")     #Wouldn't Here
                     exit()
 
                 lastVmarkPort = 1.8
@@ -593,7 +593,7 @@ def ACSimulation():
             WriteString = WriteString + getDataAC(MatResultFinal)
             fileResult.write(WriteString + '\n')
             FreTemp = FreTemp * 1.05 + 1
-    print 'Info: End AC Simulation ...'
+    print('Info: End AC Simulation ...')
     showinfo('AC End','End AC Simulation')
 
 

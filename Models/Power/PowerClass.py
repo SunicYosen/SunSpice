@@ -1,4 +1,4 @@
-#!python2.7
+#!python3
 # _*_ encoding=UTF-8 _*_
 import sys
 sys.path.append("../..")
@@ -13,7 +13,7 @@ class DCPower:                       #V
     value = '0'	                     #default value = 0 V
 
     def __init__(self):
-    	self.name = ''
+        self.name = ''
         self.portNeg = ''
         self.portPos = ''
         self.value = '0'
@@ -84,7 +84,7 @@ class PlusePower:
         Tperiod = string2num(self.Tperiod)
 
         if Tperiod < (Trise + Tfall + Twide):
-            print "****Error! Time Define Error in Pluse Power",self.name
+            print("****Error! Time Define Error in Pluse Power",self.name)
 
         if Time < ( Tdelay + Tperiod ):
             Time_temp = Time

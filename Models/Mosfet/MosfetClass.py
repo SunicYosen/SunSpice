@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 sys.path.append("../..")
@@ -68,7 +68,7 @@ class Mosfet:				 			  #NMOS
 				Ids = -1 * Beta * (Vgt*Vgt)  * (1 - lambdaN * vds) - gds*vds - gm*vgs
 
 			else:
-				print "Error: Error logic NMosFet Vds!"
+				print("Error: Error logic NMosFet Vds!")
 				exit()
 
 		elif self.MosType == 'pmos':
@@ -107,11 +107,11 @@ class Mosfet:				 			  #NMOS
 				Ids = -1 * Beta * (Vgt**2)  * (1 - lambdaP * vds) - gds * vds - gm*vgs
 				
 			else:		#wouldn't Here
-				print "Error: Error logic PMosFet Vds!"
+				print("Error: Error logic PMosFet Vds!")
 				exit()
 
 		else:
-			print "Error: Error Mos Type!",self.MosType
+			print("Error: Error Mos Type!",self.MosType)
 			exit()
 		
 		return Ids
@@ -143,7 +143,7 @@ class Mosfet:				 			  #NMOS
 				gm = -2 * Beta * Vgt * (1 - lambdaN * vds)
 
 			else:		#wouldn't Here
-				print "Error: GetGm-- Error logic NMosFet Vds!"
+				print("Error: GetGm-- Error logic NMosFet Vds!")
 
 		elif self.MosType == 'pmos':
 			width = string2num(self.valueW)
@@ -178,11 +178,11 @@ class Mosfet:				 			  #NMOS
 				gm = -2 * Beta * Vgt * (1 - lambdaP * vds)
 
 			else:		#wouldn't Here
-				print "Error: GetGm-- Error logic MosFet Vds!"
+				print("Error: GetGm-- Error logic MosFet Vds!")
 				exit()
 
 		else:
-			print "Error: Error Mos Type!",self.MosType
+			print("Error: Error Mos Type!",self.MosType)
 			exit()
 
 		return gm
@@ -213,7 +213,7 @@ class Mosfet:				 			  #NMOS
 				gds = Beta * (Vgt*Vgt)  * lambdaN
 
 			else:		#wouldn't Here
-				print "Error: GetGds-- Error logic NMosFet Vds!"
+				print("Error: GetGds-- Error logic NMosFet Vds!")
 
 		elif self.MosType == 'pmos':
 			width = string2num(self.valueW)
@@ -247,10 +247,10 @@ class Mosfet:				 			  #NMOS
 				gds = Beta * (Vgt**2)  * lambdaP
 				
 			else:		#wouldn't Here
-				print "Error: GetGds-- Error logic MosFet Vds!"
+				print("Error: GetGds-- Error logic MosFet Vds!")
 
 		else:
-			print "Error: Error Mos Type!",self.MosType
+			print("Error: Error Mos Type!",self.MosType)
 			exit()
 
 		return gds

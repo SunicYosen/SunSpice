@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 sys.path.append("../..")
@@ -6,57 +6,57 @@ sys.path.append("../..")
 import re
 import parameters
 
-from parseAcSimulation import parseAcSimulation
-from parseDcSimulation import parseDcSimulation
-from parseTranSimulation import parseTranSimulation
-from parseParam import parseParam
-from parsePlot import parsePlot
+from Functions.parseCommand.parseAcSimulation import parseAcSimulation
+from Functions.parseCommand.parseDcSimulation import parseDcSimulation
+from Functions.parseCommand.parseTranSimulation import parseTranSimulation
+from Functions.parseCommand.parseParam import parseParam
+from Functions.parseCommand.parsePlot import parsePlot
 
 def parseCommand(comString = ''):
 	comString = comString.replace('gnd','0')
 	if re.match(parameters.regExpCommandAC,comString):
-		print 'Info: --AC Simulation'
+		print( 'Info: --AC Simulation')
 		parseAcSimulation(comString)
 
 	elif re.match(parameters.regExpCommandDC,comString):
-		print 'Info: --DC Simulation'
+		print( 'Info: --DC Simulation')
 		parseDcSimulation(comString)
 	
 	elif re.match(parameters.regExpCommandTran,comString):
-		print 'Info: --Tran Simulation'
+		print( 'Info: --Tran Simulation')
 		parseTranSimulation(comString)
 
 	elif re.match(parameters.regExpCommandOptions,comString):
-		print 'Info: --Options'
+		print( 'Info: --Options')
 
 
 	elif re.match(parameters.regExpCommandOp,comString):
-		print 'Info: --OP'
+		print( 'Info: --OP')
 		
 	
 	elif re.match(parameters.regExpCommandEnd, comString):  # Wouldn't here
-		print 'Info: --End!--'
+		print( 'Info: --End!--')
 	
 	elif re.match(parameters.regExpCommandLib,comString):
-		print 'Info:  --Include Lib'
-		print 'Info:  ----Include:' ,comString.split(' ')[1]
+		print( 'Info:  --Include Lib')
+		print('Info:  ----Include:' ,comString.split(' ')[1])
 	
 	elif re.match(parameters.regExpCommandParam,comString):
-		print 'Info:  --Define Param'
+		print( 'Info:  --Define Param')
 		parseParam(comString)
 
 	elif re.match(parameters.regExpCommandPrint,comString):
-		print 'Info:  --Print'
+		print( 'Info:  --Print')
 		listPrint = comString.split(' ')
 		for index in listPrint[1:]:
-			print 'Info: ----Print:',index
+			print( 'Info: ----Print:',index)
 	
 	elif re.match(parameters.regExpCommandPlot,comString):
-		print 'Info: --Plot'
+		print( 'Info: --Plot')
 		parsePlot(comString)
 	
 	else:
-		print 'Error: --ERROR Command!'
+		print( 'Error: --ERROR Command!')
 	
 
 	return ''

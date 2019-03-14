@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from DiodeClass import Diode
+from Models.Diode.DiodeClass import Diode
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,9 +14,9 @@ import parameters
 def parseDiode(stringDiode = ''):
 	DiodeList = stringDiode.split()
 	if len(DiodeList) > 6:
-		print "****Error! More parameters than EXPECTED!"
+		print("****Error! More parameters than EXPECTED!")
 	elif len(DiodeList) < 6:
-		print "****Error! Less parameters than EXPECTED!"
+		print("****Error! Less parameters than EXPECTED!")
 	else:
 		DiodeTemp = Diode()
 		DiodeTemp.name = DiodeList[0]
@@ -32,10 +32,10 @@ def parseDiode(stringDiode = ''):
 				elif DiodeValTemp[0] == 'alpha':
 					DiodeTemp.Alpha = DiodeValTemp[1]
 				else :
-					print "****Error! Unknow parameter NAME",DiodeValTemp[0]
+					print("****Error! Unknow parameter NAME",DiodeValTemp[0])
 				ITemp = ITemp + 1
 			else:
-				print "****Error! Unknow parameter NAME",DiodeList[ITemp]
+				print("****Error! Unknow parameter NAME",DiodeList[ITemp])
 				exit()
 				
 		parameters.listD.append(DiodeTemp)

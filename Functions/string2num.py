@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
@@ -37,10 +37,10 @@ def string2num(stringNum = ''):                                      #string to 
 		#return float(SciNumList[0]) * (10 ** int(SciNumList[1]))
 		return float(stringNum)
 	
-	elif parameters.ParamDict.has_key(stringNum):
+	elif stringNum in parameters.ParamDict:
 		NumValue = float(parameters.ParamDict.get(stringNum))
 		return NumValue
 		
 	else:
-		print "Error NUM:", stringNum
+		print( "Error NUM:", stringNum)
 		exit()

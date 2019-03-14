@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import os
 import sys
@@ -12,11 +12,11 @@ import parameters
 def plotDC():
     ResultPath =  parameters.NetlistPath+'.dc'
     if not os.access(ResultPath,os.F_OK):
-        print "Warning: No DC Simulation Data!"
-        print ''
+        print("Warning: No DC Simulation Data!")
+        print('')
         return
     else:
-        print 'Info: Plot DC ...'
+        print('Info: Plot DC ...')
         XValue = []
         XLabel = ''
 
@@ -26,8 +26,8 @@ def plotDC():
         figureYLabel = []       #All Figures
         AllFigureYlabel = []
 
-        print "Info: --Reading Data ..."
-        print 'Info: File Title:',fileResult.readline()
+        print("Info: --Reading Data ...")
+        print('Info: File Title:',fileResult.readline())
 
 
         StringTitle = fileResult.readline()
@@ -59,16 +59,16 @@ def plotDC():
 
                     Ylabel.append('V(' + portPos + ',' + portNeg + ')')
 
-                    if DictTitle.has_key('v_'+portPos):
+                    if 'v_'+portPos in DictTitle:
                         portPosAddr = DictTitle.get('v_'+portPos)
                     else:
-                        print "Error: No port Named: ",portPos
+                        print("Error: No port Named: ",portPos)
                         return 
                     
-                    if DictTitle.has_key('v_'+portNeg):
+                    if 'v_'+portNeg in DictTitle:
                         portNegAddr = DictTitle.get('v_'+portNeg)
                     else:
-                        print "Error: No port Named: ",portNeg
+                        print( "Error: No port Named: ",portNeg)
                         return
 
                     listOneY.append(portPosAddr)
@@ -89,7 +89,7 @@ def plotDC():
                     listYValueAddr.append(listOneY)
             
             else:
-                print "Error: Unknow Type",parameters.listPlotDC[index].typeDC
+                print("Error: Unknow Type",parameters.listPlotDC[index].typeDC)
 
             listFigureEXP.append(listYValueAddr)
             AllFigureYlabel.append(Ylabel)
@@ -128,13 +128,13 @@ def plotDC():
                             else:
                                 addValue = float(listValue[OneValueYExp[0] - 1]) - float(listValue[OneValueYExp[1] - 1])
                         else:
-                            print "Error: Unknown ValueY.More Than 2 NUM"
+                            print("Error: Unknown ValueY.More Than 2 NUM")
                         
                         listFigure[ValueYOneFigure][ValueY].append(addValue)
 
         #plotDCProcess = multiprocessing.Process(target=plotDCing,args=(listFigure,figureYLabel,AllFigureYlabel,XValue,XLabel))
         #plotDCProcess.start
-        #print plotDCProcess.name
+        #print(plotDCProcess.name)
         fileResult.close()
         plotDCing(listFigure,figureYLabel,AllFigureYlabel,XValue,XLabel)
         

@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 #Import Package
@@ -6,7 +6,7 @@ import sys
 sys.path.append("..")
 
 import re
-from tkMessageBox import *
+from tkinter.messagebox import *
 
 import parameters
 #Dont use from parameters import NetlistPath, it Will be import ealier than Changed
@@ -23,27 +23,27 @@ def readFile():
 
 	index = inputNetlist.readline()        #Read the Netlist
 	if not index:
-		print "Error! Line: ",countLine
+		print("Error! Line: ",countLine)
 		exit()
 	
-	print 'The Title is: \t' + index     #Print The Title (First Line)
-	print "------------------------------------"
-	print "Info: Read File ..."
+	print('The Title is: \t' + index)     #Print The Title (First Line)
+	print("------------------------------------")
+	print("Info: Read File ...")
 
 	line = inputNetlist.readline()
 	if not line:
-		print 'Error: No Circuit!'
+		print('Error: No Circuit!')
 		exit()
 
 	countLine = countLine + 1
 	
 	while 1:
 		if re.match(regExpCommandEnd,line.strip().lower()):    # END 
-			print 'Info: ---Read File END!---'
+			print('Info: ---Read File END!---')
 			break
 
 		if not line:
-			print 'Waring: Short of END line! Try to IGNORE this and Continue!\t...'
+			print('Waring: Short of END line! Try to IGNORE this and Continue!\t...')
 			break
 
 		CompleteLine = line.strip().lower()
@@ -60,7 +60,7 @@ def readFile():
 		sortString(countLine-1,CompleteLine)
 		countLine = countLine + countTemp
     
-	print "Info: Sort String end!"
-	print "------------------------------------\n"
+	print("Info: Sort String end!")
+	print("------------------------------------\n")
 	inputNetlist.close()
 	showinfo('Parse','Parse End!')

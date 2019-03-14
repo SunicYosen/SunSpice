@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import os
 import sys
@@ -11,10 +11,10 @@ import parameters
 def plotTran():
     ResultPath =  parameters.NetlistPath+'.tr'
     if not os.access(ResultPath,os.F_OK):
-        print "Warning: No Tran Simulation Data!"
+        print("Warning: No Tran Simulation Data!")
         return
     else:
-        print 'Info: Plot Tran ...'
+        print('Info: Plot Tran ...')
         XValue = []
         XLabel = ''
 
@@ -24,8 +24,8 @@ def plotTran():
         figureYLabel = []       #All Figures
         AllFigureYlabel = []
 
-        print "Info: --Reading Data ..."
-        print 'Info: File Title:',fileResult.readline()
+        print("Info: --Reading Data ...")
+        print('Info: File Title:',fileResult.readline())
 
         StringTitle = fileResult.readline()
         StringTitle = StringTitle.strip()
@@ -56,16 +56,16 @@ def plotTran():
 
                     Ylabel.append('V(' + portPos + ',' + portNeg + ')')
 
-                    if DictTitle.has_key('v_'+portPos):
+                    if 'v_'+portPos in DictTitle:
                         portPosAddr = DictTitle.get('v_'+portPos)
                     else:
-                        print "Error: No port Named: ",portPos
+                        print("Error: No port Named: ",portPos)
                         return 
                     
-                    if DictTitle.has_key('v_'+portNeg):
+                    if 'v_'+portNeg in DictTitle:
                         portNegAddr = DictTitle.get('v_'+portNeg)
                     else:
-                        print "Error: No port Named: ",portNeg
+                        print("Error: No port Named: ",portNeg)
                         return
 
                     listOneY.append(portPosAddr)
@@ -77,7 +77,7 @@ def plotTran():
                 listYValueAddr = []          #list Y Expresses of one Figure
                 
                 for CurrentExp in parameters.listPlotTran[index].CurrentDeviceName:
-                    listFigure[index].append([])        #Add one Value in Figure index
+                    listFigure[index].append([]) #Add one Value in Figure index
                     DeviceName = CurrentExp
                     listOneY = []
                     Ylabel.append('I(' + DeviceName + ')')
@@ -86,7 +86,7 @@ def plotTran():
                     listYValueAddr.append(listOneY)
             
             else:
-                print "Error: Unknow Type",parameters.listPlotTran[index].typeDC
+                print("Error: Unknow Type",parameters.listPlotTran[index].typeDC)
 
             listFigureEXP.append(listYValueAddr)
             AllFigureYlabel.append(Ylabel)
@@ -125,7 +125,7 @@ def plotTran():
                             else:
                                 addValue = float(listValue[OneValueYExp[0] - 1]) - float(listValue[OneValueYExp[1] - 1])
                         else:
-                            print "Error: Unknown ValueY.More Than 2 NUM"
+                            print("Error: Unknown ValueY.More Than 2 NUM")
                         
                         listFigure[ValueYOneFigure][ValueY].append(addValue)
 
@@ -147,5 +147,5 @@ def plotTran():
                 
             
         fileResult.close()
-        print ''
+        print('')
         

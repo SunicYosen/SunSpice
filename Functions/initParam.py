@@ -1,5 +1,5 @@
 import parameters
-from tkMessageBox import *
+from tkinter.messagebox import *
 
 def initParams():
     parameters.listR = []					#

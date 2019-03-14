@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import os
 import sys
@@ -14,10 +14,10 @@ from math import atan
 def plotAC():
     ResultPath =  parameters.NetlistPath+'.ac'
     if not os.access(ResultPath,os.F_OK):
-        print "Warning: No AC Simulation Data!"
+        print( "Warning: No AC Simulation Data!")
         return
     else:
-        print 'Info: Plot AC ...'
+        print( 'Info: Plot AC ...')
         XValue = []
         XLabel = ''
 
@@ -27,8 +27,8 @@ def plotAC():
         figureYLabel = []       #All Figures
         AllFigureYlabel = []
 
-        print "Info: --Reading Data ..."
-        print 'Info: File Title:',fileResult.readline()
+        print( "Info: --Reading Data ...")
+        print( 'Info: File Title:',fileResult.readline())
 
         StringTitle = fileResult.readline()
         StringTitle = StringTitle.strip()
@@ -60,16 +60,16 @@ def plotAC():
 
                     Ylabel.append('V(' + portPos + ',' + portNeg + ')')
 
-                    if DictTitle.has_key('v_'+portPos):
+                    if 'v_'+portPos in DictTitle:
                         portPosAddr = DictTitle.get('v_'+portPos)
                     else:
-                        print "Error: No port Named: ",portPos
+                        print( "Error: No port Named: ",portPos)
                         return 
                     
-                    if DictTitle.has_key('v_'+portNeg):
+                    if 'v_'+portNeg in DictTitle:
                         portNegAddr = DictTitle.get('v_'+portNeg)
                     else:
-                        print "Error: No port Named: ",portNeg
+                        print( "Error: No port Named: ",portNeg)
                         return
 
                     listOneY.append(portPosAddr)
@@ -90,7 +90,7 @@ def plotAC():
                     listYValueAddr.append(listOneY)
             
             else:
-                print "Error: Unknow Type",parameters.listPlotAC[index].typeDC
+                print( "Error: Unknow Type",parameters.listPlotAC[index].typeDC)
 
             listFigureEXP.append(listYValueAddr)
             AllFigureYlabel.append(Ylabel)
@@ -128,7 +128,7 @@ def plotAC():
                             else:
                                 addValue = complex(listValue[OneValueYExp[0] - 1]) - complex(listValue[OneValueYExp[1] - 1])
                         else:
-                            print "Error: Unknown ValueY.More Than 2 NUM"
+                            print( "Error: Unknown ValueY.More Than 2 NUM")
 
                         Real = addValue.real
                         Imag = addValue.imag

@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from CurrentClass import DCCurrent
+from Models.Current.CurrentClass import DCCurrent
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,11 +14,11 @@ import parameters
 def parseIs(IsString = ''):
 	IsParaList = IsString.split(' ')
 	if len(IsParaList) > 4:
-		print '----ERROR: More parameters than expected!'
+		print('----ERROR: More parameters than expected!')
 		return '----False'
 	
 	elif len(IsParaList) < 4:
-		print '----ERROR: Less parameters than expected!'
+		print('----ERROR: Less parameters than expected!')
 		return '----False'
 	
 	else :
@@ -34,10 +34,10 @@ def parseIs(IsString = ''):
 		addNode(IsTemp.portNeg)
 		parameters.listDCI.append(IsTemp)
 		
-		print '\t RHS'
-		print IsTemp.portPos,'\t',-1*value
-		print IsTemp.portNeg,'\t',value
-		print ''
+		print('\t RHS')
+		print(IsTemp.portPos,'\t',-1*value)
+		print(IsTemp.portNeg,'\t',value)
+		print('')
 
 		return IsTemp
 

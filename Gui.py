@@ -1,10 +1,10 @@
-#!/usr/bin/python 
+#!/usr/bin/python3
 # -*- encoding: utf8 -*-
 
 import os
-from Tkinter import *
-from tkMessageBox import *
-from tkFileDialog import *
+from tkinter import messagebox,filedialog
+from tkinter.messagebox import *
+from tkinter.filedialog import *
 
 import matplotlib.pyplot as plt
 
@@ -105,11 +105,11 @@ def search():
     def dosearch():
         myentry = entry1.get()             #获取查找的内容--string型
         whatever = str(textPad.get(1.0,END))
-        # print textPad.index('zxc')
-        # print myentry
-        # print "%d个"%(whatever.count(myentry))    #计算substr在S中出现的次数
+        # print( textPad.index('zxc'))
+        # print(myentry)
+        # print("%d个"%(whatever.count(myentry)))    #计算substr在S中出现的次数
         showinfo("Search Result：","you searched %s, there are %d in the text"%(myentry,whatever.count(myentry)))
-        # print whatever.find(myentry)
+        # print(whatever.find(myentry))
  
         # teIndex = textPad.index(myentry)
         # textPad.linestart(teIndex)

@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 sys.path.append("../..")
@@ -23,7 +23,7 @@ def parseAcSimulation(acSimString = ''):
 	acSimlist = acSimString.split(' ')
 
 	if len(acSimlist) < 3:
-		print "Error: Less parameters than Expected!"
+		print( "Error: Less parameters than Expected!")
 		exit()
 	
 	elif len(acSimlist) == 3:
@@ -47,7 +47,7 @@ def parseAcSimulation(acSimString = ''):
 		parameters.listACParam.append(acSimSweepTemp)
 
 	else:
-		print "Error: AC Simulation Expression is ERROR!"
+		print( "Error: AC Simulation Expression is ERROR!")
 		exit()
 
 	#ACSimulation()  #Start AC Simulation

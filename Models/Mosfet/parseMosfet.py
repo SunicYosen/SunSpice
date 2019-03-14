@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from MosfetClass import Mosfet
+from Models.Mosfet.MosfetClass import Mosfet
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,11 +14,11 @@ import parameters
 def parseMosfet(mosString = ''):
 	mosParaList = mosString.split(' ')
 	if len(mosParaList) > 8:
-		print 'ERROR: More parameters than expected!'
+		print('ERROR: More parameters than expected!')
 		exit()
 	
 	elif len(mosParaList) < 8:
-		print 'ERROR: Less parameters than expected!'
+		print('ERROR: Less parameters than expected!')
 		exit()
 	
 	else:
@@ -38,14 +38,14 @@ def parseMosfet(mosString = ''):
 
 		if mosParaList[5] == 'nmos':
 			MosfetTemp.MosType = 'nmos'
-			print 'Info: --Type: nmos'
+			print('Info: --Type: nmos')
 
 		elif mosParaList[5] == 'pmos':
 			MosfetTemp.MosType = 'pmos'
-			print 'Info: --Type: pmos'
+			print('Info: --Type: pmos')
 		
 		else :
-			print 'Error: Error mosfet TYPE!',mosParaList[5]
+			print('Error: Error mosfet TYPE!',mosParaList[5])
 			exit()
 
 		parameters.listM.append(MosfetTemp)

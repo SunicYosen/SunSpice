@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 import sys
 sys.path.append("..")
@@ -26,61 +26,61 @@ def sortString(countLine = 0,index = ''):
 
 	if re.match(parameters.regExpComment,index):	#Comment
 		pass
-		#print 'Info:' ,countLine, 'line is comment line!'
+		#print('Info:' ,countLine, 'line is comment line!')
 		
 	elif re.match(parameters.regExpCommand,index): #Command
-		print 'Info:' , countLine, 'line is command line!'
+		print( 'Info:' , countLine, 'line is command line!')
 		parseCommand(index)
 		
 	elif re.match(parameters.regExpC,index):	#C
-		print 'Info:' ,countLine,'line is Cap!'
+		print( 'Info:' ,countLine,'line is Cap!')
 		parseC(index)
 	
 	elif re.match(parameters.regExpR,index):	#R
-		print 'Info:' ,countLine, 'line is Reg' 
+		print( 'Info:' ,countLine, 'line is Reg')
 		parseR(index)
 
 	elif re.match(parameters.regExpL,index):	#L
-		print 'Info:' ,countLine, 'line is L'
+		print( 'Info:' ,countLine, 'line is L')
 		parseInductor(index)
 	
 	elif re.match(parameters.regExpV,index): 	#Vs
-		print 'Info:' ,countLine, 'line is V'
+		print( 'Info:' ,countLine, 'line is V')
 		parsePower(index)
 	
 	elif re.match(parameters.regExpI,index):	#Is
-		print 'Info:' ,countLine, 'line is I'
+		print('Info:' ,countLine, 'line is I')
 		parseIs(index)
 
 	elif re.match(parameters.regExpMos,index):	#MosFet
-		print 'Info:' ,countLine, 'line is Mosfet'
+		print( 'Info:' ,countLine, 'line is Mosfet')
 		parseMosfet(index)
 		
 	elif re.match(parameters.regExpExtend,index):   #Woludn't Here
-		print 'Info:' ,countLine, 'line is Extend!'
+		print( 'Info:' ,countLine, 'line is Extend!')
 
 	elif re.match(parameters.regExpVCVS,index):   #E
-		print 'Info:' ,countLine, 'VCVS'
+		print( 'Info:' ,countLine, 'VCVS')
 		parseVCVS_E(index)
 
 	elif re.match(parameters.regExpCCCS,index):   #F
-		print 'Info:' ,countLine, 'CCCS'
+		print( 'Info:' ,countLine, 'CCCS')
 		parseCCCS_F(index)
 
 	elif re.match(parameters.regExpVCCS,index):    #G
-		print 'Info:' ,countLine, 'VCCS'
+		print( 'Info:' ,countLine, 'VCCS')
 		parseVCCS_G(index)
 
 	elif re.match(parameters.regExpCCVS,index):		#H
-		print 'Info:' ,countLine, 'CCVS'
+		print( 'Info:' ,countLine, 'CCVS')
 		parseCCVS_H(index)
 
 	elif re.match(parameters.regExpD,index):		#Diode
-		print 'Info:' ,countLine,'Diode'
+		print( 'Info:' ,countLine,'Diode')
 		parseDiode(index)
 
 	elif index == '':
 		pass
 
 	else :
-		 print countLine,'line Error!'
+		 print( countLine,'line Error!')

@@ -1,10 +1,10 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
 sys.path.append("../..")
 
-from ResistorClass import Resistor
+from Models.Resistor.ResistorClass import Resistor
 
 from Functions.addNode import addNode
 from Functions.string2num import string2num
@@ -14,11 +14,11 @@ def parseR(resString =''):							#parse Resistor
 	resParaList = resString.split(' ')
 
 	if len(resParaList) > 4:
-		print '----ERROR: More parameters than expected!'
+		print('----ERROR: More parameters than expected!')
 		return '----False'
 
 	elif len(resParaList) < 4:
-		print '----ERROR: Lese parameters than expected!'
+		print('----ERROR: Lese parameters than expected!')
 		return '----False'
 	
 	else:
@@ -35,10 +35,10 @@ def parseR(resString =''):							#parse Resistor
 		
 		parameters.listR.append(resistorTemp)
 
-		#print '\t',resistorTemp.port1,'\t',resistorTemp.port2,'\t'
-		#print resistorTemp.port1,'  ',1/value,' \t',-1/value
-		#print resistorTemp.port2,'  ',-1/value,' \t',1/value
-		#print ''
+		#print('\t',resistorTemp.port1,'\t',resistorTemp.port2,'\t')
+		#print(resistorTemp.port1,'  ',1/value,' \t',-1/value)
+		#print(resistorTemp.port2,'  ',-1/value,' \t',1/value)
+		#print('')
 
 		return resistorTemp
 	

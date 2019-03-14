@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 #
@@ -36,7 +36,7 @@ def main(args):
 
 	else:
 		parameters.NetlistPath = args[1]
-		print parameters.NetlistPath
+		print(parameters.NetlistPath)
 		readFile()
 
 		OpSimulation()

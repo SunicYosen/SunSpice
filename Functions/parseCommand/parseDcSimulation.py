@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 # -*- encoding="UTF-8" -*-
 
 import sys
@@ -27,7 +27,7 @@ def parseDcSimulation(dcSimString = ''):					#parse DC simulation
 	dcSimlist = dcSimString.split(' ')
 
 	if len(dcSimlist) < 4:
-		print "Error: Less parameters than Expected!"
+		print( "Error: Less parameters than Expected!")
 		exit()
 	
 	elif len(dcSimlist) == 4:
@@ -54,7 +54,7 @@ def parseDcSimulation(dcSimString = ''):					#parse DC simulation
 		parameters.listDCParam.append(dcSimSweepTemp)
 
 	else:
-		print "Error: DC Simulation Expression is ERROR!"
+		print( "Error: DC Simulation Expression is ERROR!")
 		exit()
 	
 	#DCSimulation()   										#Start DC Simulation
