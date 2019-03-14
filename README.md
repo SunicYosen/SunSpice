@@ -42,15 +42,16 @@ python3.6 in Ubuntu 16.04.4&18.04.1 amd64
 
 ## Useage
 
-  If python3 in your computer such as /usr/bin/, you can type:
+  Please install some package needed by the program:
+  > pip3 install -r requirements.txt
 
-      $ ./Gui.py
-      $ python3 Gui.py
+  Then you can run in Gui mode:
+  > ./Gui.py \
+  > python3 Gui.py
 
   Or you can use Command mode by
-
-      $ ./SunSpice.py **.sp
-      $ python3 SunSpice.py **.sp
+  > ./SunSpice.py **.sp \
+  > python3 SunSpice.py **.sp
 
 IF ANY Problem, Please add issue at: [Github New Issue](https://github.com/SunicYosen/SunSpice/issues/new)
 
